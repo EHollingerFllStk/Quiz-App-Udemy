@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { CssBaseline, Box, Container } from "@mui/material";
+import { lightBlue } from "@mui/material/colors";
+import QuestionCard from"./QuestionCard";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <CssBaseline/>
+      <Box sx={{
+        backgroundColor: lightBlue[500],
+        height: "100vh", display: "flex", alignItems: "center"
+      }} >
+      <Container maxWidth="sm">
+        <QuestionCard question={{
+          title: "Sample Question", 
+          options: [
+            {
+              description: "Answer 1"
+            },
+            {
+              description: "Answer 2"
+            }
+          ]
+        }} questionNumber={1} />
+      </Container>
+      </Box>
     </div>
   );
 }
