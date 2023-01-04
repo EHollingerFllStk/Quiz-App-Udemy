@@ -11,11 +11,16 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 
 export default function QuestionCard(props) {
-    const { question = {}, questionNumber } = props;
+    const { question = {}, questionNumber, submitAnswer } = props;
     const [value, setValue] = React.useState(null);
 
     const handleChangeRadio = (e) => {
         setValue(e.target.value)
+    }
+
+    const handleSubmit = () => {
+        submitAnswer(value);
+        setValue(null);
     }
 
   return (
@@ -40,7 +45,7 @@ export default function QuestionCard(props) {
      
     </CardContent>
     <CardActions>
-      <Button fullWidth variant="outlined" size="small">Submit</Button>
+      <Button disabled={!value} onClick={handleSubmit} fullWidth variant="outlined" size="small">Submit</Button>
     </CardActions></Card>
     </Box>
   );
