@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CssBaseline, Box, Container } from "@mui/material";
 import { lightBlue } from "@mui/material/colors";
 import QuestionCard from"./QuestionCard";
+import Result from "./Result";
 import questions from "./data/questions";
 
 function App() {
@@ -27,14 +28,11 @@ function App() {
         height: "100vh", display: "flex", alignItems: "center"
       }} >
       <Container maxWidth="sm">
-        {finishedQuiz ? null : <QuestionCard question=
+        {finishedQuiz ? <Result answers={answers} /> : <QuestionCard question=
         {currentQuestion} questionNumber={currentQuestionIndex + 1}
         submitAnswer={submitAnswer} />}
         
       </Container>
-      <div>
-        {JSON.stringify(answers)}
-      </div>
       </Box>
     </div>
   );
