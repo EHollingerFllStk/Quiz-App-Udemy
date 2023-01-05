@@ -4,7 +4,7 @@ import { Typographym, Card, CardContent, CardActions, Button, Typography } from 
 import questions from "./data/questions";
 
 export default function Result(props) {
-    const { answers } = props;
+    const { answers, restartQuiz } = props;
         
         const correctAnswers = useMemo(() => {
             return questions.filter((q, i) => {
@@ -19,6 +19,11 @@ export default function Result(props) {
                 {correctAnswers} / {questions.length}
             </Typography>
         </CardContent>
+        <CardActions sx={{ display: "flex", justifyContent: "center" }}>
+            <Button onClick={restartQuiz} variant="outlined">
+                Retry
+            </Button>
+        </CardActions>
     </Card>
   )
 }

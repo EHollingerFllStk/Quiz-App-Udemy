@@ -20,6 +20,12 @@ function App() {
     goToNext();
   }
 
+  const restartQuiz = () => {
+    setCurrentQuestionIndex(0);
+    setAnswers([]);
+  }
+
+
   return (
     <div>
       <CssBaseline/>
@@ -28,7 +34,7 @@ function App() {
         height: "100vh", display: "flex", alignItems: "center"
       }} >
       <Container maxWidth="sm">
-        {finishedQuiz ? <Result answers={answers} /> : <QuestionCard question=
+        {finishedQuiz ? <Result restartQuiz={restartQuiz} answers={answers} /> : <QuestionCard question=
         {currentQuestion} questionNumber={currentQuestionIndex + 1}
         submitAnswer={submitAnswer} />}
         
